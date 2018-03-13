@@ -10,7 +10,7 @@ import com.practice.projects.grocerymanager.entity.GroceryEntity;
 
 @Repository
 public interface GroceryEntityRepository extends CrudRepository<GroceryEntity, Long> {
-	@Query("Select ge from grocery_entity ge where ge.probable_end_date>DATE() AND ge.probable_end_date<DATE()")
+	@Query("Select ge from GroceryEntity ge where ge.probableEndDate>CURDATE() AND ge.probableEndDate<CURDATE()+7")
 	public List<GroceryEntity> getAboutToFinishItems();
 
 	public List<GroceryEntity> findByStatus_Status(String status);

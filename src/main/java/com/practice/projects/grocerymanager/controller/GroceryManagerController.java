@@ -19,25 +19,25 @@ public class GroceryManagerController {
 
 	@RequestMapping("/getAvailableItems")
 	public String getAvailableItems(ModelAndView model) {
-		model.addObject("getHaveToBuyItems", service.getAvailableItems());
+		model.addObject("groceryItems", service.getAvailableItems());
 		return "showResults";
 	}
 
 	@RequestMapping("/getFinishedItems")
 	public String getFinishedItems(ModelAndView model) {
-		model.addObject("getHaveToBuyItems", service.getFinishedItems());
+		model.addObject("groceryItems", service.getFinishedItems());
 		return "showResults";
 	}
 
 	@RequestMapping("/getHaveToBuyItems")
 	public String getHaveToBuyItems(ModelAndView model) {
-		model.addObject("getHaveToBuyItems", service.getHaveToBuyItems());
+		model.addObject("groceryItems", service.getHaveToBuyItems());
 		return "showResults";
 	}
 
 	@RequestMapping("/getAboutToFinishItems")
 	public String getAboutToFinishItems(ModelAndView model) {
-		model.addObject("aboutToFinishList", service.getAboutToFinishItems());
+		model.addObject("groceryItems", service.getAboutToFinishItems());
 		return "showResults";
 	}
 

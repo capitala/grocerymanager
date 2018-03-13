@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PostLoad;
 
 @Entity
 public class GroceryEntity {
@@ -71,5 +72,16 @@ public class GroceryEntity {
 		this.dateOfPurchase = dateOfPurchase;
 	}
 	private Date dateOfPurchase;
+	@PostLoad
+	public void setDetails() {
+		dateOfPurchase=new Date();
+		
+	}
+	public void setProbableFinishingDate() {
+		probableEndDate=new Date(dateOfPurchase.getDate()+7*quantity);
+	}
+	public void setTotalPrice() {
+		totalPrice=quantity*price;
+	}
 
 }
