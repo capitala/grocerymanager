@@ -18,33 +18,28 @@ public class GroceryManagerController {
 	private GroceryManagerService service;
 
 	@RequestMapping("/getAvailableItems")
-	public String getAvailableItems(ModelAndView model) {
-		model.addObject("groceryItems", service.getAvailableItems());
-		return "showResults";
+	public List<GroceryEntity> getAvailableItems(ModelAndView model) {
+		return service.getAvailableItems();
 	}
 
 	@RequestMapping("/getFinishedItems")
-	public String getFinishedItems(ModelAndView model) {
-		model.addObject("groceryItems", service.getFinishedItems());
-		return "showResults";
+	public List<GroceryEntity> getFinishedItems(ModelAndView model) {
+		return service.getFinishedItems();
 	}
 
 	@RequestMapping("/getHaveToBuyItems")
-	public String getHaveToBuyItems(ModelAndView model) {
-		model.addObject("groceryItems", service.getHaveToBuyItems());
-		return "showResults";
+	public List<GroceryEntity> getHaveToBuyItems(ModelAndView model) {
+		return service.getHaveToBuyItems();
 	}
 
 	@RequestMapping("/getAboutToFinishItems")
-	public String getAboutToFinishItems(ModelAndView model) {
-		model.addObject("groceryItems", service.getAboutToFinishItems());
-		return "showResults";
+	public List<GroceryEntity> getAboutToFinishItems(ModelAndView model) {
+		return service.getAboutToFinishItems();
 	}
 
 	@RequestMapping(value = "/addAnItem", method = RequestMethod.POST)
-	public String addAnItem(@RequestBody GroceryEntity entity, ModelAndView model) {
-		model.addObject("addedItem", service.addAnItem(entity));
-		return "showResults";
+	public GroceryEntity addAnItem(@RequestBody GroceryEntity entity, ModelAndView model) {
+		return service.addAnItem(entity);
 	}
 
 }
