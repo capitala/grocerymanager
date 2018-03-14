@@ -2,7 +2,9 @@ package com.practice.projects.grocerymanager.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.PostLoad;
 
 @Entity
+@EntityListeners(value = { GroceryEntity.class })
 public class GroceryEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -20,7 +23,7 @@ public class GroceryEntity {
 	private int quantity;
 	private double price;
 	private double totalPrice;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="id")
 	private GroceryStatus status;
 	public GroceryStatus getStatus() {
@@ -75,6 +78,9 @@ public class GroceryEntity {
 	@PostLoad
 	public void setDetails() {
 		dateOfPurchase=new Date();
+		setProbableFinishingDate();
+		setTotalPrice();
+		
 		
 	}
 	public void setProbableFinishingDate() {

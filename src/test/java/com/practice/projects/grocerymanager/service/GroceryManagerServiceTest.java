@@ -52,9 +52,6 @@ public class GroceryManagerServiceTest {
 	}
 	@Test
 	public void addAnItem() {
-		
-
-		
 		Mockito.when(repo.save(Mockito.any(GroceryEntity.class))).thenReturn(new GroceryEntity());
 		GroceryEntity results=service.addAnItem(new GroceryEntity());
         assertEquals(results.getClass(), GroceryEntity.class);

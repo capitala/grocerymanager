@@ -11,8 +11,6 @@ public class GroceryStatus {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	private String status;
-	@OneToOne
-	private GroceryEntity groceryEntity;
 
 	public GroceryStatus() {
 		// TODO Auto-generated constructor stub
@@ -26,12 +24,5 @@ public class GroceryStatus {
 		this.status = status;
 	}
 
-	public GroceryEntity getGroceryEntity() {
-		return groceryEntity;
-	}
-
-	public void setGroceryEntity(GroceryEntity groceryEntity) {
-		this.groceryEntity = groceryEntity;
-	}
 
 }
