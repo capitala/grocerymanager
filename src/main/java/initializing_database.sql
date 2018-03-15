@@ -1,6 +1,6 @@
 delete from `grocery_status`;
 delete from `grocery_entity`;
-insert into grocery_entity(date_of_purchase,name,price,probable_end_date,quantity,total_price) values(CURDATE(),'shampoo',5,CURDATE()+7*10,10,50);
+insert into grocery_entity(date_of_purchase,name,price,probable_end_date,quantity,total_price) values(CURDATE(),'shampoo',5,CURDATE()+7,10,50);
 insert into grocery_entity(date_of_purchase,name,price,probable_end_date,quantity,total_price) values(CURDATE(),'aata',10,CURDATE()+7,1,10);
 insert into grocery_entity(date_of_purchase,name,price,probable_end_date,quantity,total_price) values(CURDATE(),'rice',10,CURDATE()+7,1,10);
 insert into grocery_entity(date_of_purchase,name,price,probable_end_date,quantity,total_price) values(CURDATE(),'maggi',1,CURDATE()+7,10,10);

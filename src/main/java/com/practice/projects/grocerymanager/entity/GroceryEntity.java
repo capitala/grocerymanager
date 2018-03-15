@@ -4,16 +4,15 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PostLoad;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@EntityListeners(value = { GroceryEntity.class })
 public class GroceryEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -23,8 +22,8 @@ public class GroceryEntity {
 	private int quantity;
 	private double price;
 	private double totalPrice;
-	@OneToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="id")
+	@JsonIgnore
+	@OneToOne(mappedBy = "ge", cascade = CascadeType.ALL)
 	private GroceryStatus status;
 	public GroceryStatus getStatus() {
 		return status;
