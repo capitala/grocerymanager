@@ -13,7 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.PostLoad;
 
 @Entity
-@EntityListeners(value = { GroceryEntity.class })
 public class GroceryEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -75,7 +74,7 @@ public class GroceryEntity {
 		this.dateOfPurchase = dateOfPurchase;
 	}
 	private Date dateOfPurchase;
-	@PostLoad
+/*	@PostLoad
 	public void setDetails() {
 		dateOfPurchase=new Date();
 		setProbableFinishingDate();
@@ -88,6 +87,6 @@ public class GroceryEntity {
 	}
 	public void setTotalPrice() {
 		totalPrice=quantity*price;
-	}
+	}*/
 
 }
