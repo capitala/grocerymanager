@@ -2,7 +2,10 @@ package com.practice.projects.grocerymanager.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,7 +41,7 @@ public class GroceryManagerController {
 	}
 
 	@RequestMapping(value = "/addAnItem", method = RequestMethod.POST)
-	public GroceryEntity addAnItem(@RequestBody GroceryEntity entity, ModelAndView model) {
+	public GroceryEntity addAnItem(@Valid @RequestBody GroceryEntity entity, BindingResult bindingResult) {
 		return service.addAnItem(entity);
 	}
 
